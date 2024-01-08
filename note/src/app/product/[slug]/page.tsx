@@ -1,5 +1,6 @@
 import NotFound from '@/app/not-found'
 import { getProduct, getProducts } from '@/service/products'
+import Image from 'next/image'
 
 interface Props {
   params: {
@@ -22,6 +23,9 @@ export default async function ProductPage({ params: { slug } }: Props) {
   return (
     <>
       <h1>{product.name} 제품 상세 페이지</h1>
+      <div>
+        <Image src={`/images/${product.image}`} alt={product.name} width={300} height={300}/>
+      </div>
     </>
   )
 }
